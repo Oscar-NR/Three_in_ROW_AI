@@ -8,20 +8,15 @@ winner = 'N'
 turn = 'X';
 validMove = False
 
-
-from gameThree import gameCore
+import gameThree
 from AIThree import AI
-
 
 print('Welcome to three in row game')
 print('X moves first:')
 print('1- X team')
 print('2- O team')
 
-
-
 while validMove == False:
-
     move = int (input('Your team: ') )   
     try:
         if(move == 1 or move == 2):
@@ -44,7 +39,6 @@ print('   ', positions[6], positions[7], positions[8])
 while(winner =='N'):  
     #Reset the flag validMove
     validMove = False
-
     
     while validMove == False:
         move = int(input('Next move:') )   
@@ -63,11 +57,14 @@ while(winner =='N'):
     print('   ', positions[3], positions[4], positions[5])
     print('   ', positions[6], positions[7], positions[8])
 
+    winner = gameThree.winnerCheck(positions)
+
     #after a valid move change the team turn
     if (turn == 'X'):
         turn ='O'
     else:
         turn = 'X'      
         
-print('The winner was: ', winner)
+print('The winner was: ', winner)   
+
     
